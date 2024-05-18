@@ -230,7 +230,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 
 	var/total_rank = jointext(ranks, ", ")
 
-	var/duration_text = duration?"jobbanned for [duration/60] hours":"perma-jobbanned"
+	var/duration_text = duration ? "jobbanned for [duration] minutes" : "perma-jobbanned"
 
 	// this is here for a short transition period when we still are testing DB notes and constantly deleting the file
 	if(CONFIG_GET(flag/duplicate_notes_to_file) && !duration)
@@ -249,6 +249,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 
 	to_chat(owning_client, SPAN_WARNING("<BIG><B>You have been jobbanned by [admin.ckey] from: [total_rank].</B></BIG>"))
 	to_chat(owning_client, SPAN_WARNING("<B>The reason is: [ban_text]</B>"))
+
 	if(!duration)
 		to_chat(owning_client, SPAN_WARNING("Jobban can be lifted only upon request."))
 	else
