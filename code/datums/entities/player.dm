@@ -230,7 +230,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 
 	var/total_rank = jointext(ranks, ", ")
 
-	var/duration_text = duration ? "jobbanned for [duration] minutes" : "perma-jobbanned"
+	var/duration_text = duration ? "jobbanned for [duration] minutes" : "perma-jobbanned" // RU-CM EDIT
 
 	// this is here for a short transition period when we still are testing DB notes and constantly deleting the file
 	if(CONFIG_GET(flag/duplicate_notes_to_file) && !duration)
